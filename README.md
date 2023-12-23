@@ -1,5 +1,5 @@
 # Word-Maker In Browser Game - Version 1.0
-
+https://grglls.github.io/Word-Maker/
 
 This project is a broswer version of a puzzle game made using HTML, CSS and JavaScript.
 
@@ -15,8 +15,11 @@ Click the play again button to reset the game.
 
 ## Future Development:
 ### Short Term:
+* Enter key support.
+* Add word definitions.
+* Messages on guessing a word.
+* Message on game end.
 
 ### Long Term:
-* Points tracker.
-* Support for physical keyboard.
-* Typed whole word guesses.
+* Points tracking.
+* Daily mode.
