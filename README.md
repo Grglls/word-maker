@@ -15,7 +15,6 @@ Click the play again button to reset the game.
 
 ## Future Development:
 ### Short Term:
-* Enter key support.
 * Add word definitions.
 * Messages on guessing a word.
 * Message on game end.

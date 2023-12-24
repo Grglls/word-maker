@@ -39,15 +39,25 @@ const elements = {
     points: document.getElementById('points-container'),
     correctWords: document.getElementById('correct-words-container'),
     keyboardContainer: document.getElementById('keyboard-container'),
-    currentWord: document.getElementById('current-guess'),
-    checkWord: document.getElementById('check-word'),
-    playAgain: document.getElementById('play-again'),
+    currentWord: document.getElementById('current-guess'), // The input field
+    checkWord: document.getElementById('check-word'), // The check word button
+    playAgain: document.getElementById('play-again'), // The play again button
 };
 
 
 /*------------------------- event listeners -------------------------*/
 elements.playAgain.addEventListener('click', init);
 elements.checkWord.addEventListener('click', handleCheckGuess);
+// Event listener to allow use of the enter key:
+elements.currentWord.addEventListener('keypress', function(event) {
+    // Check if the key pressed is the Enter key:
+    if(event.key === 'Enter') {
+        // Prevent the default method:
+        event.preventDefault();
+        // Invoke a click on the check word button:
+        elements.checkWord.click();
+    }
+});
 
 
 /*------------------------- functions -------------------------*/
@@ -77,17 +87,19 @@ function handleCheckGuess(event) {
     const guess = elements.currentWord.value.toLowerCase();
     console.log('The guess was: ', guess);
     
-    // Check if the guessed word is a valid word:
-    if (state.validWords.includes(guess)) {
+    // Check if the guessed word is a valid word and hasn't already been guessed:
+    if (state.validWords.includes(guess) && !state.correctGuesses.includes(guess)) {
         // If the word is a valid word, push it the the correct guesses array:
         console.log('in the true branch');
         state.correctGuesses.push(guess);
         // Add points equal to the length of the word:
         state.points += guess.length;
+    } else if (state.correctGuesses.includes(guess)) {
+        // If the word has already been guessed:
+        console.log('word already guessed!');
     } else {
         // If the word is NOT a valid word... :
         console.log('in the false branch');
-        
     };
     
     // Empty out the input field:
@@ -256,7 +268,7 @@ function renderMessage() {
     elements.message.innerHTML = '';
 
     // Render the number of correctly guessed words and the total possible:
-    const text = `${state.correctGuesses.length} out of ${state.validWords.length}`;
+    const text = `${state.correctGuesses.length} out of ${state.validWords.length} words`;
     messageElement = document.createElement('div');
     messageElement.innerText = text;
     elements.message.appendChild(messageElement);
