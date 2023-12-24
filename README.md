@@ -15,9 +15,9 @@ Click the play again button to reset the game.
 
 ## Future Development:
 ### Short Term:
-* Add word definitions.
 * Messages on guessing a word.
 * Message on game end.
+* Improve CSS.
 
 ### Long Term:
 * Points tracking.

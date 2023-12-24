@@ -251,14 +251,24 @@ function renderWords() {
         wordElement.innerText = 'Guess a word to begin';
         // Append the words to the wordContainer:
         elements.correctWords.appendChild(wordElement);
-    }
-
-    // Loop through the correctly guessed words and render them as 
-    for (let i = 0; i < state.correctGuesses.length; i++) {
-        wordElement = document.createElement('div');
-        wordElement.innerText = state.correctGuesses[i];
-        // Append the words to the wordContainer:
-        elements.correctWords.appendChild(wordElement);
+    } else {
+        tableElement = document.createElement('table');
+        for (let word of state.correctGuesses) {
+            // Create the table row element:
+            tableRowElement = document.createElement('tr');
+            // Create the word and append to the table row:
+            wordElement = document.createElement('td');
+            wordElement.innerText = word;
+            tableRowElement.appendChild(wordElement)
+            // Create the definition and append to the table row:
+            definitionElement = document.createElement('td');
+            definitionElement.innerText = ALL_WORDS[word];
+            tableRowElement.appendChild(definitionElement);
+            // Append the row to the table:
+            tableElement.appendChild(tableRowElement);
+        }
+        // Append the table to the wordContainer:
+        elements.correctWords.appendChild(tableElement);
     }
 }
 

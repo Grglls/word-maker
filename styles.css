@@ -30,6 +30,12 @@ section#message-container {
     position: relative;
 }
 
+td {
+    border: 2px black solid;
+    font-size: min(5vh, 20px);
+    padding: 10px;
+}
+
 section#points-container {
     font-size: min(2vh, 30px);
     padding: auto 0.5vh;
@@ -42,7 +48,6 @@ section#correct-words-container {
 }
 
 section#keyboard-container {
-    /* color: green; */
     display: grid;
     grid-template-rows: repeat(3, 5vh);
     grid-template-areas: 
