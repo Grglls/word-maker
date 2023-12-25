@@ -4,36 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word-Maker</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="assets/common.js"></script>
     <script defer src="js/main.js"></script>
 </head>
-<body>
-    <h1>Word-Maker</h1>
+<body class="space-y-4 p-3 font-mono bg-slate-800 text-slate-100">
+    <h1 class="pt-6 p-3 font-semibold text-center space-y-4">Word-Maker</h1>
     
-    <section id="message-container"></section>
+    <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center" id="message-container"></div>
     
-    <section id="points-container"></section>
+    <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center" id="points-container"></div>
     
-    <section id="keyboard-container">
-        <div id="keyboard-row-1">
+    <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center text-slate-900" id="keyboard-container">
+        <div id="keyboard-row-1" class="flex gap-2 justify-center">
         </div>
 
-        <div id="keyboard-row-2">
+        <div id="keyboard-row-2" class="flex gap-2 justify-center">
         </div>
 
-        <div id="keyboard-row-3">
+        <div id="keyboard-row-3" class="flex gap-2 justify-center">
         </div>
-    </section>
+    </div>
     
-    <section id="current-word-container">
-        <input type="text" id="current-guess">
-        <button id="check-word">Check</button>
-    </section>
+    <div class="p-3 bg-slate-700 shadow rounded-lg" id="current-word-container">
+        <input class="rounded-lg bg-slate-800 p-2" type="text" placeholder="Guess a word" id="current-guess">
+        <button class="rounded-lg bg-yellow-500 p-2" id="check-word">Check</button>
+    </div>
     
-    <section id="correct-words-container"></section>
+    <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg" id="correct-words-container"></div>
 
 
-    <button id="play-again">Play Again</button>
+    <button class="rounded-lg bg-yellow-500 p-2 content-center" id="play-again">Play Again</button>
 </body>
 </html>

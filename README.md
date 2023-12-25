@@ -15,9 +15,11 @@ Click the play again button to reset the game.
 
 ## Future Development:
 ### Short Term:
-* Messages on guessing a word.
+* Messages upon guessing a word.
 * Message on game end.
 * Improve CSS.
+* Button to shuffle letters.
+* Add new words to the top of the list not the bottom.
 
 ### Long Term:
 * Points tracking.
