@@ -207,7 +207,7 @@ function renderLetters() {
     for (let i = 0; i < 2; i++) {
         letterElement = document.createElement('div');
         letterElement.innerText = state.otherLetters[i];
-        letterElement.classList.add('space-y-4', 'p-3', 'bg-white', 'shadow', 'rounded-lg');
+        letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg');
         keyboardRows[0].appendChild(letterElement);
     }
 
@@ -216,18 +216,18 @@ function renderLetters() {
         if (i == 1) {
             letterElement = document.createElement('div');
             letterElement.innerText = state.keyLetter;
-            letterElement.classList.add('space-y-4', 'p-3', 'bg-white', 'shadow', 'rounded-lg');
+            letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg');
             letterElement.classList.add('key-letter', 'bg-yellow-400');
             keyboardRows[1].appendChild(letterElement);
         } else if (i == 0) {
             letterElement = document.createElement('div');
             letterElement.innerText = state.otherLetters[i + 2];
-            letterElement.classList.add('space-y-4', 'p-3', 'bg-white', 'shadow', 'rounded-lg');
+            letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg');
             keyboardRows[1].appendChild(letterElement);
         } else {
             letterElement = document.createElement('div');
             letterElement.innerText = state.otherLetters[i + 1];
-            letterElement.classList.add('space-y-4', 'p-3', 'bg-white', 'shadow', 'rounded-lg');
+            letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg');
             keyboardRows[1].appendChild(letterElement);
         }
     }
@@ -236,7 +236,7 @@ function renderLetters() {
     for (let i = 4; i < state.otherLetters.length; i++) {
         letterElement = document.createElement('div');
         letterElement.innerText = state.otherLetters[i];
-        letterElement.classList.add('space-y-4', 'p-3', 'bg-white', 'shadow', 'rounded-lg');
+        letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg');
         keyboardRows[2].appendChild(letterElement);
     }
 }
@@ -266,7 +266,7 @@ function renderWords() {
             definitionElement = document.createElement('td');
             definitionElement.classList.add('border-collapse', 'border', 'border-slate-500', 'p-2');
             definitionElement.innerText = ALL_WORDS[word];
-            definitionElement.classList.add('w:auto');
+            // definitionElement.classList.add('w:auto');
             tableRowElement.appendChild(definitionElement);
             // Append the row to the table (prepend to get newest guesses at top):
             tableElement.prepend(tableRowElement);
