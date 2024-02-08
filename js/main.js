@@ -298,3 +298,38 @@ function renderPoints() {
     pointsElement.innerText = `${state.points} points`;
     elements.points.appendChild(pointsElement);
 }
+
+// Solver function (return the possible words for an array of letters):
+function solutions(array) {
+    // Set up the empty array:
+    const validWords = [];
+    // Add the words that contain only the keyLetter and the otherLetters:
+    for (let word in ALL_WORDS) {
+        // Start by assuming that the word is valid:
+        let valid = true;
+
+        // If any letter in the word isn't in the set of letters, set 'valid' to false:
+        for ( let i = 0; i < word.length; i++ ) {
+            if ( !array.includes(word[i]) ) {
+                valid = false;
+                break;
+            }
+        }
+
+        // Note: comment this out as don't know the key letter...
+        // If the key letter isn't in the word, set 'valid' to false:
+        // if ( !word.includes(state.keyLetter) ) {
+        //     valid = false;
+        // }
+
+        // If the word passes the tests, add it to the list of valid words:
+        if (valid == true) {
+            validWords.push(word);
+            console.log(word, ' is a valid word');
+        };
+    }
+
+    // console.log(ALL_WORDS.length, ' total words');
+    // console.log(validWords.length, ' valid words gathered.');
+    return validWords;
+}
