@@ -300,7 +300,7 @@ function renderPoints() {
 }
 
 // Solver function (return the possible words for an array of letters):
-function solutions(array) {
+function solutions(array, keyLetter) {
     // Set up the empty array:
     const validWords = [];
     // Add the words that contain only the keyLetter and the otherLetters:
@@ -316,11 +316,10 @@ function solutions(array) {
             }
         }
 
-        // Note: comment this out as don't know the key letter...
         // If the key letter isn't in the word, set 'valid' to false:
-        // if ( !word.includes(state.keyLetter) ) {
-        //     valid = false;
-        // }
+        if ( !word.includes(keyLetter) ) {
+            valid = false;
+        }
 
         // If the word passes the tests, add it to the list of valid words:
         if (valid == true) {
