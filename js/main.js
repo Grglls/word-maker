@@ -198,7 +198,7 @@ function renderLetters() {
   for (let i = 0; i < 2; i++) {
     letterElement = document.createElement('div');
     letterElement.innerText = state.otherLetters[i];
-    letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg');
+    letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
     keyboardRows[0].appendChild(letterElement);
   }
 
@@ -207,18 +207,18 @@ function renderLetters() {
     if (i == 1) {
       letterElement = document.createElement('div');
       letterElement.innerText = state.keyLetter;
-      letterElement.classList.add('p-3', 'shadow', 'rounded-lg');
+      letterElement.classList.add('p-3', 'shadow', 'rounded-lg', 'cursor-pointer');
       letterElement.classList.add('key-letter', 'bg-lime-500');
       keyboardRows[1].appendChild(letterElement);
     } else if (i == 0) {
       letterElement = document.createElement('div');
       letterElement.innerText = state.otherLetters[i + 2];
-      letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg');
+      letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
       keyboardRows[1].appendChild(letterElement);
     } else {
       letterElement = document.createElement('div');
       letterElement.innerText = state.otherLetters[i + 1];
-      letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg');
+      letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
       keyboardRows[1].appendChild(letterElement);
     }
   }
@@ -227,7 +227,7 @@ function renderLetters() {
   for (let i = 4; i < state.otherLetters.length; i++) {
     letterElement = document.createElement('div');
     letterElement.innerText = state.otherLetters[i];
-    letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg');
+    letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
     keyboardRows[2].appendChild(letterElement);
   }
 }
