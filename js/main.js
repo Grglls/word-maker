@@ -47,6 +47,7 @@ const elements = {
 
 /*------------------------- event listeners -------------------------*/
 elements.playAgain.addEventListener('click', init);
+elements.letterContainer.addEventListener('click', handleClick);
 elements.checkWord.addEventListener('click', handleCheckGuess);
 // Event listener to allow use of the enter key:
 elements.currentWord.addEventListener('keypress', function(event) {
@@ -75,6 +76,17 @@ function init () {
   elements.currentWord.value = '';
   
   render();
+}
+
+function handleClick(event) {
+  // If the event.target wasn't a letter, exit the function:
+  if (event.target.classList.contains('letter') === false) return;
+
+  // If the game has already been won, exit the function:
+  if (state.result !== null) return;
+
+  // Add the letter to the input field:
+  elements.currentWord.value += event.target.innerText;
 }
 
 function handleCheckGuess(event) {
@@ -198,7 +210,7 @@ function renderLetters() {
   for (let i = 0; i < 2; i++) {
     letterElement = document.createElement('div');
     letterElement.innerText = state.otherLetters[i];
-    letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
+    letterElement.classList.add('letter', 'p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
     keyboardRows[0].appendChild(letterElement);
   }
 
@@ -207,18 +219,17 @@ function renderLetters() {
     if (i == 1) {
       letterElement = document.createElement('div');
       letterElement.innerText = state.keyLetter;
-      letterElement.classList.add('p-3', 'shadow', 'rounded-lg', 'cursor-pointer');
-      letterElement.classList.add('key-letter', 'bg-lime-500');
+      letterElement.classList.add('letter', 'p-3', 'bg-lime-500', 'shadow', 'rounded-lg', 'cursor-pointer');
       keyboardRows[1].appendChild(letterElement);
     } else if (i == 0) {
       letterElement = document.createElement('div');
       letterElement.innerText = state.otherLetters[i + 2];
-      letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
+      letterElement.classList.add('letter', 'p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
       keyboardRows[1].appendChild(letterElement);
     } else {
       letterElement = document.createElement('div');
       letterElement.innerText = state.otherLetters[i + 1];
-      letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
+      letterElement.classList.add('letter', 'p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
       keyboardRows[1].appendChild(letterElement);
     }
   }
@@ -227,7 +238,7 @@ function renderLetters() {
   for (let i = 4; i < state.otherLetters.length; i++) {
     letterElement = document.createElement('div');
     letterElement.innerText = state.otherLetters[i];
-    letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
+    letterElement.classList.add('letter', 'p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
     keyboardRows[2].appendChild(letterElement);
   }
 }
