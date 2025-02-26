@@ -307,36 +307,11 @@ function renderPoints() {
   elements.points.appendChild(pointsElement);
 }
 
-// Solver function (return the possible words for an array of letters):
-function solutions(array, keyLetter) {
-  // Set up the empty array:
-  const validWords = [];
-  // Add the words that contain only the keyLetter and the otherLetters:
-  for (let word in ALL_WORDS) {
-    // Start by assuming that the word is valid:
-    let valid = true;
-
-    // If any letter in the word isn't in the set of letters, set 'valid' to false:
-    for ( let i = 0; i < word.length; i++ ) {
-      if ( !array.includes(word[i]) ) {
-          valid = false;
-          break;
-      }
-    }
-
-    // If the key letter isn't in the word, set 'valid' to false:
-    if ( !word.includes(keyLetter) ) {
-      valid = false;
-    }
-
-    // If the word passes the tests, add it to the list of valid words:
-    if (valid === true) {
-      validWords.push(word);
-      console.log(word, ' is a valid word');
-    };
+// Solver function (enters all valid words to fastforward to end of game):
+function solve() {
+  // Loop through the valid words, submit each one as a guess:
+  for (word of state.validWords) {
+    elements.textInput.value = word;
+    elements.checkWord.click();
   }
-
-  // console.log(ALL_WORDS.length, ' total words');
-  // console.log(validWords.length, ' valid words gathered.');
-  return validWords;
 }
