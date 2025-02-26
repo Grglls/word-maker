@@ -199,15 +199,14 @@ function checkWinner() {
 }
 
 function render() {
-  renderLetters();
+  renderAllLetters();
   renderWords();
   renderMessage();
   renderPoints();
 }
 
-function renderLetters() {
-  // Render the letters from the set of letters:
-  // First retrieve the three rows on letters:
+function renderAllLetters() {
+  // Retrieve the three rows of letters:
   const keyboardRows = elements.letterContainer.children;
 
   // Clear out the current letters:
@@ -217,39 +216,35 @@ function renderLetters() {
 
   // Render 2 letters to the first row:
   for (let i = 0; i < 2; i++) {
-    letterElement = document.createElement('div');
-    letterElement.innerText = state.otherLetters[i];
-    letterElement.classList.add('letter', 'p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
-    keyboardRows[0].appendChild(letterElement);
+    keyboardRows[0].appendChild(renderOneLetter(state.otherLetters[i]));
   }
 
   // Render 3 letters to the middle row, with the key letter in the middle:
   for (let i = 0; i < 3; i++) {
     if (i === 1) {
-      letterElement = document.createElement('div');
-      letterElement.innerText = state.keyLetter;
-      letterElement.classList.add('letter', 'p-3', 'bg-lime-500', 'shadow', 'rounded-lg', 'cursor-pointer');
-      keyboardRows[1].appendChild(letterElement);
+      keyboardRows[1].appendChild(renderOneLetter(state.keyLetter));
     } else if (i === 0) {
-      letterElement = document.createElement('div');
-      letterElement.innerText = state.otherLetters[i + 2];
-      letterElement.classList.add('letter', 'p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
-      keyboardRows[1].appendChild(letterElement);
+      keyboardRows[1].appendChild(renderOneLetter(state.otherLetters[i + 2]));
     } else {
-      letterElement = document.createElement('div');
-      letterElement.innerText = state.otherLetters[i + 1];
-      letterElement.classList.add('letter', 'p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
-      keyboardRows[1].appendChild(letterElement);
+      keyboardRows[1].appendChild(renderOneLetter(state.otherLetters[i + 1]));
     }
   }
 
   // Render 2 letters to the last row:
   for (let i = 4; i < state.otherLetters.length; i++) {
-    letterElement = document.createElement('div');
-    letterElement.innerText = state.otherLetters[i];
-    letterElement.classList.add('letter', 'p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
-    keyboardRows[2].appendChild(letterElement);
+    keyboardRows[2].appendChild(renderOneLetter(state.otherLetters[i]));
   }
+}
+
+function renderOneLetter(letter) {
+  letterElement = document.createElement('div');
+  letterElement.innerText = letter;
+  if (letter === state.keyLetter) {
+    letterElement.classList.add('letter', 'p-3', 'bg-lime-500', 'shadow', 'rounded-lg', 'cursor-pointer');
+  } else {
+    letterElement.classList.add('letter', 'p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
+  }
+  return letterElement;
 }
 
 function renderWords() {
