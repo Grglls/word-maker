@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word-Maker</title>
-    <!-- <link rel="stylesheet" href="styles.css"> -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="assets/common.js"></script>
-    <script defer src="js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word-Maker</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/common.js"></script>
+  <script defer src="js/main.js"></script>
 </head>
 <body class="space-y-4 p-3 font-mono bg-slate-800 text-slate-100 sm:grid sm:grid-cols-2 sm:gap-x-4">
-    <h1 class="pt-6 p-3 font-semibold text-center space-y-4 sm:col-span-2">Word-Maker</h1>
-    
-    <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center" id="message-container"></div>
-    
-    <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center" id="points-container"></div>
-    
-    <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center text-slate-900" id="keyboard-container">
-        <div id="keyboard-row-1" class="flex gap-2 justify-center">
-        </div>
-
-        <div id="keyboard-row-2" class="flex gap-2 justify-center">
-        </div>
-
-        <div id="keyboard-row-3" class="flex gap-2 justify-center">
-        </div>
+  <h1 class="pt-6 p-3 font-semibold text-center space-y-4 sm:col-span-2">Word-Maker</h1>
+  
+  <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center" id="message-container"></div>
+  
+  <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center" id="points-container"></div>
+  
+  <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center text-slate-900" id="keyboard-container">
+    <div id="keyboard-row-1" class="flex gap-2 justify-center">
     </div>
-    
-    <div class="p-3 bg-slate-700 shadow rounded-lg" id="current-word-container">
-        <input class="rounded-lg bg-slate-800 p-2" type="text" placeholder="Guess a word" id="current-guess">
-        <button class="rounded-lg bg-yellow-500 p-2" id="check-word">Check</button>
+
+    <div id="keyboard-row-2" class="flex gap-2 justify-center">
     </div>
-    
-    <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg sm:col-span-2" id="correct-words-container"></div>
+
+    <div id="keyboard-row-3" class="flex gap-2 justify-center">
+    </div>
+  </div>
+  
+  <div class="p-3 bg-slate-700 shadow rounded-lg" id="current-word-container">
+    <input class="rounded-lg bg-slate-800 p-2" type="text" placeholder="Guess a word" id="current-guess">
+    <button class="rounded-lg bg-yellow-500 p-2" id="check-word">Check</button>
+  </div>
+  
+  <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg sm:col-span-2" id="correct-words-container"></div>
 
 
-    <button class="rounded-lg bg-yellow-500 p-2 content-center" id="play-again">Play Again</button>
+  <button class="rounded-lg bg-yellow-500 p-2 content-center" id="play-again">Play Again</button>
 </body>
 </html>
