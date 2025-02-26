@@ -63,7 +63,6 @@ elements.currentWord.addEventListener('keypress', function(event) {
 /*------------------------- functions -------------------------*/
 init();
 
-
 function init () {
   state.randomSet = randomLetterSet();
   state.keyLetter = randomLetter();
@@ -77,7 +76,6 @@ function init () {
   
   render();
 }
-
 
 function handleCheckGuess(event) {
   // If the game has already been won or lost, exit the function:
@@ -112,7 +110,6 @@ function handleCheckGuess(event) {
   render();
 }
 
-
 function randomLetterSet() {
   const index = Math.floor( Math.random() * LETTER_SETS.length );
   // Turn the set into an array for easier manipulation:
@@ -121,14 +118,12 @@ function randomLetterSet() {
   return set;
 }
 
-
 function randomLetter() {
   const index = Math.floor( Math.random() * state.randomSet.length );
   const keyLetter = state.randomSet[index];
   console.log('The key letter is: ', keyLetter);
   return keyLetter;
 }
-
 
 function otherLetters() {
   const otherLetters = [];
@@ -143,7 +138,6 @@ function otherLetters() {
   console.log('The other letters are: ', otherLetters);
   return otherLetters;
 }
-
 
 function retrieveValidWords() {
   const validWords = [];
@@ -177,13 +171,11 @@ function retrieveValidWords() {
   return validWords;
 }
 
-
 function checkWinner() {
   // Check if all the valid words have been guessed:
   result = state.validWords.every(word => state.correctGuesses.includes(word));
   return result ? true : null;
 }
-
 
 function render() {
   renderLetters();
@@ -191,7 +183,6 @@ function render() {
   renderMessage();
   renderPoints();
 }
-
 
 function renderLetters() {
   // Render the letters from the set of letters:
@@ -241,7 +232,6 @@ function renderLetters() {
   }
 }
 
-
 function renderWords() {
   // Clear out the current wordContainer:
   elements.correctWords.innerHTML = '';
@@ -276,7 +266,6 @@ function renderWords() {
   }
 }
 
-
 function renderMessage() {
   // Clear out the previous message:
   elements.message.innerHTML = '';
@@ -287,7 +276,6 @@ function renderMessage() {
   messageElement.innerText = text;
   elements.message.appendChild(messageElement);
 }
-
 
 function renderPoints() {
   // Clear out the previous message:
