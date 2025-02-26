@@ -291,7 +291,7 @@ function renderMessage() {
   elements.message.innerHTML = '';
 
   // Render the number of correctly guessed words and the total possible:
-  const text = `${state.correctGuesses.length} out of ${state.validWords.length} words`;
+  const text = `${state.correctGuesses.length} / ${state.validWords.length} words found`;
   messageElement = document.createElement('div');
   messageElement.innerText = text;
   elements.message.appendChild(messageElement);
