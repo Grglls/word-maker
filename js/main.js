@@ -13,7 +13,7 @@ const LETTER_SETS = [];
 for (let word in ALL_WORDS) {
   const uniqueLetters = new Set(word.split(""));
   // console.log('The set of letters is: ', uniqueLetters)
-  if (uniqueLetters.size == 7) {
+  if (uniqueLetters.size === 7) {
     WORDS_SEVEN_UNIQUE.push(word);
     LETTER_SETS.push(uniqueLetters);
   };
@@ -181,7 +181,7 @@ function retrieveValidWords() {
     }
 
     // If the word passes the tests, add it to the list of valid words:
-    if (valid == true) {
+    if (valid === true) {
       validWords.push(word);
       console.log(word, ' is a valid word');
     };
@@ -225,12 +225,12 @@ function renderLetters() {
 
   // Render 3 letters to the middle row, with the key letter in the middle:
   for (let i = 0; i < 3; i++) {
-    if (i == 1) {
+    if (i === 1) {
       letterElement = document.createElement('div');
       letterElement.innerText = state.keyLetter;
       letterElement.classList.add('letter', 'p-3', 'bg-lime-500', 'shadow', 'rounded-lg', 'cursor-pointer');
       keyboardRows[1].appendChild(letterElement);
-    } else if (i == 0) {
+    } else if (i === 0) {
       letterElement = document.createElement('div');
       letterElement.innerText = state.otherLetters[i + 2];
       letterElement.classList.add('letter', 'p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
@@ -256,7 +256,7 @@ function renderWords() {
   // Clear out the current wordContainer:
   elements.correctWords.innerHTML = '';
 
-  if ( state.correctGuesses.length == 0 ) {
+  if ( state.correctGuesses.length === 0 ) {
     wordElement = document.createElement('div');
     wordElement.innerText = 'Guess a word to begin...';
     // Append the words to the wordContainer:
@@ -330,7 +330,7 @@ function solutions(array, keyLetter) {
     }
 
     // If the word passes the tests, add it to the list of valid words:
-    if (valid == true) {
+    if (valid === true) {
       validWords.push(word);
       console.log(word, ' is a valid word');
     };
