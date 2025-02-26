@@ -207,8 +207,8 @@ function renderLetters() {
     if (i == 1) {
       letterElement = document.createElement('div');
       letterElement.innerText = state.keyLetter;
-      letterElement.classList.add('p-3', 'bg-white', 'shadow', 'rounded-lg');
-      letterElement.classList.add('key-letter', 'bg-yellow-400');
+      letterElement.classList.add('p-3', 'shadow', 'rounded-lg');
+      letterElement.classList.add('key-letter', 'bg-lime-500');
       keyboardRows[1].appendChild(letterElement);
     } else if (i == 0) {
       letterElement = document.createElement('div');
@@ -243,18 +243,18 @@ function renderWords() {
     elements.correctWords.appendChild(wordElement);
   } else {
     tableElement = document.createElement('table');
-    tableElement.classList.add('table-auto', 'border-collapse', 'border', 'border-slate-500');
+    tableElement.classList.add('table-auto', 'border-collapse', 'border', 'border-zinc-500');
     for (let word of state.correctGuesses) {
       // Create the table row element:
       tableRowElement = document.createElement('tr');
       // Create the word and append to the table row:
       wordElement = document.createElement('td');
-      wordElement.classList.add('border-collapse', 'border', 'border-slate-500', 'p-2');
+      wordElement.classList.add('border-collapse', 'border', 'border-zinc-500', 'p-2');
       wordElement.innerText = word;
       tableRowElement.appendChild(wordElement)
       // Create the definition and append to the table row:
       definitionElement = document.createElement('td');
-      definitionElement.classList.add('border-collapse', 'border', 'border-slate-500', 'p-2');
+      definitionElement.classList.add('border-collapse', 'border', 'border-zinc-500', 'p-2');
       definitionElement.innerText = ALL_WORDS[word];
       // definitionElement.classList.add('w:auto');
       tableRowElement.appendChild(definitionElement);
