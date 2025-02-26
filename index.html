@@ -10,13 +10,26 @@
   <script defer src="js/main.js"></script>
 </head>
 <body class="space-y-4 p-3 font-mono bg-slate-800 text-slate-100 sm:grid sm:grid-cols-2 sm:gap-x-4">
-  <h1 class="pt-6 p-3 font-semibold text-center space-y-4 sm:col-span-2">Word-Maker</h1>
-  
-  <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center" id="message-container"></div>
-  
-  <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center" id="points-container"></div>
-  
-  <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center text-slate-900" id="keyboard-container">
+  <h1 class="pt-6 p-3 font-semibold text-center space-y-4 sm:col-span-2">
+    Word-Maker
+  </h1>
+
+  <div
+    class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center"
+    id="message-container"
+  >
+  </div>
+
+  <div
+    class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center"
+    id="points-container"
+  >
+  </div>
+
+  <div
+    class="space-y-4 p-3 bg-slate-700 shadow rounded-lg text-center text-slate-900"
+    id="keyboard-container"
+  >
     <div id="keyboard-row-1" class="flex gap-2 justify-center">
     </div>
 
@@ -26,13 +39,17 @@
     <div id="keyboard-row-3" class="flex gap-2 justify-center">
     </div>
   </div>
-  
+
   <div class="p-3 bg-slate-700 shadow rounded-lg" id="current-word-container">
     <input class="rounded-lg bg-slate-800 p-2" type="text" placeholder="Guess a word" id="current-guess">
     <button class="p-2 bg-yellow-500 content-center rounded-lg text-slate-900" id="check-word">Check</button>
   </div>
-  
-  <div class="space-y-4 p-3 bg-slate-700 shadow rounded-lg sm:col-span-2" id="correct-words-container"></div>
+
+  <div
+    class="space-y-4 p-3 bg-slate-700 shadow rounded-lg sm:col-span-2"
+    id="correct-words-container"
+  >
+  </div>
 
   <section class="flex place-content-center">
     <button
