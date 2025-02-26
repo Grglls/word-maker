@@ -39,7 +39,7 @@ const elements = {
   points: document.getElementById('points-container'),
   correctWords: document.getElementById('correct-words-container'),
   letterContainer: document.getElementById('letter-container'),
-  currentWord: document.getElementById('current-guess'), // The input field
+  textInput: document.getElementById('current-guess'), // The input field
   checkWord: document.getElementById('check-word'), // The check word button
   playAgain: document.getElementById('play-again'), // The play again button
 };
@@ -49,7 +49,7 @@ const elements = {
 elements.playAgain.addEventListener('click', init);
 elements.letterContainer.addEventListener('click', handleClick);
 elements.checkWord.addEventListener('click', handleCheckGuess);
-elements.currentWord.addEventListener('keypress', handleKeypress);
+elements.textInput.addEventListener('keypress', handleKeypress);
 
 
 /*------------------------- functions -------------------------*/
@@ -64,7 +64,7 @@ function init () {
   state.result = null;
   state.points = 0;
   
-  elements.currentWord.value = '';
+  elements.textInput.value = '';
   
   render();
 }
@@ -77,7 +77,7 @@ function handleClick(event) {
   if (state.result !== null) return;
 
   // Add the letter to the input field:
-  elements.currentWord.value += event.target.innerText;
+  elements.textInput.value += event.target.innerText;
 }
 
 function handleKeypress(event) {
@@ -103,7 +103,7 @@ function handleCheckGuess(event) {
   if (state.result !== null) return;
   
   // Convert the typed guess to all lower case:
-  const guess = elements.currentWord.value.toLowerCase();
+  const guess = elements.textInput.value.toLowerCase();
   console.log('The guess was: ', guess);
   
   // Check if the guessed word is a valid word and hasn't already been guessed:
@@ -122,7 +122,7 @@ function handleCheckGuess(event) {
   };
   
   // Empty out the input field:
-  elements.currentWord.value = '';
+  elements.textInput.value = '';
 
   // Check for winner:
   state.result = checkWinner();
