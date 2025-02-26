@@ -38,7 +38,7 @@ const elements = {
   message: document.getElementById('message-container'),
   points: document.getElementById('points-container'),
   correctWords: document.getElementById('correct-words-container'),
-  keyboardContainer: document.getElementById('keyboard-container'),
+  letterContainer: document.getElementById('letter-container'),
   currentWord: document.getElementById('current-guess'), // The input field
   checkWord: document.getElementById('check-word'), // The check word button
   playAgain: document.getElementById('play-again'), // The play again button
@@ -187,7 +187,7 @@ function render() {
 function renderLetters() {
   // Render the letters from the set of letters:
   // First retrieve the three rows on letters:
-  const keyboardRows = elements.keyboardContainer.children;
+  const keyboardRows = elements.letterContainer.children;
 
   // Clear out the current letters:
   for (let i = 0; i < 3; i++) {
