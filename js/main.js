@@ -49,16 +49,7 @@ const elements = {
 elements.playAgain.addEventListener('click', init);
 elements.letterContainer.addEventListener('click', handleClick);
 elements.checkWord.addEventListener('click', handleCheckGuess);
-// Event listener to allow use of the enter key:
-elements.currentWord.addEventListener('keypress', function(event) {
-  // Check if the key pressed is the Enter key:
-  if(event.key === 'Enter') {
-    // Prevent the default method:
-    event.preventDefault();
-    // Invoke a click on the check word button:
-    elements.checkWord.click();
-  }
-});
+elements.currentWord.addEventListener('keypress', handleKeypress);
 
 
 /*------------------------- functions -------------------------*/
@@ -82,15 +73,33 @@ function handleClick(event) {
   // If the event.target wasn't a letter, exit the function:
   if (event.target.classList.contains('letter') === false) return;
 
-  // If the game has already been won, exit the function:
+  // If the game has already finished, exit the function:
   if (state.result !== null) return;
 
   // Add the letter to the input field:
   elements.currentWord.value += event.target.innerText;
 }
 
+function handleKeypress(event) {
+  // If the keys are Shift+Enter, start a new game:
+  if (event.key === 'Enter' && event.shiftKey === true) {
+    init();
+  }
+
+  // If the game has already finished, exit the function:
+  if (state.result !== null) return;
+
+  // Check if the key pressed is the Enter key:
+  if(event.key === 'Enter') {
+    // Prevent the default method:
+    event.preventDefault();
+    // Invoke a click on the check word button:
+    elements.checkWord.click();
+  }
+}
+
 function handleCheckGuess(event) {
-  // If the game has already been won or lost, exit the function:
+  // If the game has already finished, exit the function:
   if (state.result !== null) return;
   
   // Convert the typed guess to all lower case:

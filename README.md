@@ -11,7 +11,7 @@ The game adopts the Model-View-Controller (MVC) approach for the code's architec
 * Letters may be used more than once.
 * Type on the keyboard or click the letters on screen to build a word.
 * Press enter on the keyboard or click the 'Check' button to submit a guess.
-* Click the play again button to start a new game.
+* Click the play again button or press Shift-Enter to start a new game.
 
 ## Known Bugs:
 * Set of letters are placed in the same order that they came from the originating word (except for the 'key' letter), meaning that it is easier to guess the full word.
