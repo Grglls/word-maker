@@ -249,7 +249,7 @@ function renderWords() {
 
   if ( state.correctGuesses.length == 0 ) {
     wordElement = document.createElement('div');
-    wordElement.innerText = 'Guess a word to begin';
+    wordElement.innerText = 'Guess a word to begin...';
     // Append the words to the wordContainer:
     elements.correctWords.appendChild(wordElement);
   } else {
