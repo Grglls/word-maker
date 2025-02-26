@@ -240,9 +240,9 @@ function renderOneLetter(letter) {
   letterElement = document.createElement('div');
   letterElement.innerText = letter;
   if (letter === state.keyLetter) {
-    letterElement.classList.add('letter', 'p-3', 'bg-lime-500', 'shadow', 'rounded-lg', 'cursor-pointer');
+    letterElement.classList.add('letter', 'px-3', 'py-2', 'bg-lime-500', 'shadow', 'rounded-lg', 'cursor-pointer');
   } else {
-    letterElement.classList.add('letter', 'p-3', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
+    letterElement.classList.add('letter', 'px-3', 'py-2', 'bg-white', 'shadow', 'rounded-lg', 'cursor-pointer');
   }
   return letterElement;
 }
