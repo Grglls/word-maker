@@ -68,7 +68,8 @@ function init () {
   
   elements.textInput.value = '';
   
-  render();
+  // Shuffle letters and render the game:
+  shuffleLetters(); // Includes call to render();
 }
 
 function handleClick(event) {
