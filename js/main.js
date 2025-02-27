@@ -10,7 +10,7 @@ console.log('version 1.0');
 // Save the words with 7 unique letters into an array:
 const WORDS_SEVEN_UNIQUE = [];
 const LETTER_SETS = [];
-for (let word in ALL_WORDS) {
+for (const word in ALL_WORDS) {
   const uniqueLetters = new Set(word.split(""));
   // console.log('The set of letters is: ', uniqueLetters)
   if (uniqueLetters.size === 7) {
@@ -299,7 +299,7 @@ function renderPoints() {
 // Solver function (enters all valid words to fastforward to end of game):
 function solve() {
   // Loop through the valid words, submit each one as a guess:
-  for (word of state.validWords) {
+  for (const word of state.validWords) {
     elements.textInput.value = word;
     elements.checkWord.click();
   }
