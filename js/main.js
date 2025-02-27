@@ -41,18 +41,18 @@ const elements = {
   letterContainer: document.getElementById('letter-container'),
   textInput: document.getElementById('current-guess'), // The input field
   backspaceButton: document.getElementById('backspace'), // The check word button
-  checkWord: document.getElementById('check-word'), // The check word button
-  shuffleLetters: document.getElementById('shuffle'), // The shuffle letters button
-  playAgain: document.getElementById('play-again'), // The play again button
+  checkButton: document.getElementById('check-word'), // The check word button
+  shuffleButton: document.getElementById('shuffle'), // The shuffle letters button
+  playAgainButton: document.getElementById('play-again'), // The play again button
 };
 
 
 /*------------------------- event listeners -------------------------*/
-elements.playAgain.addEventListener('click', init);
+elements.playAgainButton.addEventListener('click', init);
 elements.letterContainer.addEventListener('click', handleClick);
 elements.backspaceButton.addEventListener('click', handleBackspace);
-elements.checkWord.addEventListener('click', handleCheckGuess);
-elements.shuffleLetters.addEventListener('click', shuffleLetters);
+elements.checkButton.addEventListener('click', handleCheckGuess);
+elements.shuffleButton.addEventListener('click', shuffleLetters);
 elements.textInput.addEventListener('keypress', handleKeypress);
 
 
@@ -99,7 +99,7 @@ function handleKeypress(event) {
     // Prevent the default method:
     event.preventDefault();
     // Invoke a click on the check word button:
-    elements.checkWord.click();
+    elements.checkButton.click();
   }
 }
 
@@ -319,6 +319,6 @@ function solve() {
   // Loop through the valid words, submit each one as a guess:
   for (const word of state.validWords) {
     elements.textInput.value = word;
-    elements.checkWord.click();
+    elements.checkButton.click();
   }
 }
