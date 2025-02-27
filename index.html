@@ -45,28 +45,30 @@
     id="current-word-container"
   >
     <input
-      class="rounded-md bg-zinc-800 p-2"
+      class="rounded-md bg-zinc-800 p-2 mb-2 w-full"
       id="current-guess"
       type="text" placeholder="Type a word..."
     >
-    <button
-      class="p-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer"
-      id="backspace"
-    >
-      Backspace
-    </button>
-    <button
-      class="p-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer"
-      id="check-word"
-    >
-      Check
-    </button>
-    <button
-      class="p-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer"
-      id="shuffle"
-    >
-      Shuffle
-    </button>
+    <div class="flex justify-between">
+      <button
+        class="p-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer w-full"
+        id="backspace"
+      >
+        Backspace
+      </button>
+      <button
+        class="p-2 mx-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer w-full"
+        id="check-word"
+      >
+        Check
+      </button>
+      <button
+        class="p-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer w-full"
+        id="shuffle"
+      >
+        Shuffle
+      </button>
+    </div>
   </section>
 
   <section
