@@ -34,13 +34,12 @@ const state = {
 
 /*------------------------- cached elements  -------------------------*/
 const elements = {
-  // diagramContainer: document.getElementById('diagram-container'),
   message: document.getElementById('message-container'),
   points: document.getElementById('points-container'),
   correctWords: document.getElementById('correct-words-container'),
   letterContainer: document.getElementById('letter-container'),
   textInput: document.getElementById('current-guess'), // The input field
-  backspaceButton: document.getElementById('backspace'), // The check word button
+  backspaceButton: document.getElementById('backspace'), // The backspace button
   checkButton: document.getElementById('check-word'), // The check word button
   shuffleButton: document.getElementById('shuffle'), // The shuffle letters button
   playAgainButton: document.getElementById('play-again'), // The play again button
