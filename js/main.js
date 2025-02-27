@@ -220,15 +220,9 @@ function renderAllLetters() {
   }
 
   // Render 3 letters to the middle row, with the key letter in the middle:
-  for (let i = 0; i < 3; i++) {
-    if (i === 1) {
-      keyboardRows[1].appendChild(renderOneLetter(state.keyLetter));
-    } else if (i === 0) {
-      keyboardRows[1].appendChild(renderOneLetter(state.otherLetters[i + 2]));
-    } else {
-      keyboardRows[1].appendChild(renderOneLetter(state.otherLetters[i + 1]));
-    }
-  }
+  keyboardRows[1].appendChild(renderOneLetter(state.otherLetters[2]));
+  keyboardRows[1].appendChild(renderOneLetter(state.keyLetter));
+  keyboardRows[1].appendChild(renderOneLetter(state.otherLetters[3]));
 
   // Render 2 letters to the last row:
   for (let i = 4; i < state.otherLetters.length; i++) {
