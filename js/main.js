@@ -40,6 +40,7 @@ const elements = {
   correctWords: document.getElementById('correct-words-container'),
   letterContainer: document.getElementById('letter-container'),
   textInput: document.getElementById('current-guess'), // The input field
+  backspaceButton: document.getElementById('backspace'), // The check word button
   checkWord: document.getElementById('check-word'), // The check word button
   shuffleLetters: document.getElementById('shuffle'), // The shuffle letters button
   playAgain: document.getElementById('play-again'), // The play again button
@@ -49,6 +50,7 @@ const elements = {
 /*------------------------- event listeners -------------------------*/
 elements.playAgain.addEventListener('click', init);
 elements.letterContainer.addEventListener('click', handleClick);
+elements.backspaceButton.addEventListener('click', handleBackspace);
 elements.checkWord.addEventListener('click', handleCheckGuess);
 elements.shuffleLetters.addEventListener('click', shuffleLetters);
 elements.textInput.addEventListener('keypress', handleKeypress);
@@ -99,6 +101,14 @@ function handleKeypress(event) {
     // Invoke a click on the check word button:
     elements.checkWord.click();
   }
+}
+
+function handleBackspace() {
+  const str = elements.textInput.value;
+  // Exit the function if the input is already empty:
+  if (str === '') return;
+  // Remove the last letter from the input field:
+  elements.textInput.value = str.substring(0, str.length - 1);
 }
 
 function handleCheckGuess(event) {
