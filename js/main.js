@@ -41,6 +41,7 @@ const elements = {
   letterContainer: document.getElementById('letter-container'),
   textInput: document.getElementById('current-guess'), // The input field
   checkWord: document.getElementById('check-word'), // The check word button
+  shuffleLetters: document.getElementById('shuffle'), // The shuffle letters button
   playAgain: document.getElementById('play-again'), // The play again button
 };
 
@@ -49,6 +50,7 @@ const elements = {
 elements.playAgain.addEventListener('click', init);
 elements.letterContainer.addEventListener('click', handleClick);
 elements.checkWord.addEventListener('click', handleCheckGuess);
+elements.shuffleLetters.addEventListener('click', shuffleLetters);
 elements.textInput.addEventListener('keypress', handleKeypress);
 
 
@@ -158,6 +160,11 @@ function otherLetters() {
   // state.randomSet.forEach(element => element !== state.keyLetter ? '' : element);
   console.log('The other letters are: ', otherLetters);
   return otherLetters;
+}
+
+function shuffleLetters() {
+  state.otherLetters = state.otherLetters.sort(() => Math.random() - 0.5);
+  render();
 }
 
 function retrieveValidWords() {
