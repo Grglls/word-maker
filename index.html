@@ -9,8 +9,8 @@
   <script src="assets/common.js"></script>
   <script defer src="js/main.js"></script>
 </head>
-<body class="space-y-2 p-2 font-mono bg-zinc-800 text-zinc-100 sm:grid sm:grid-cols-2 sm:gap-x-4">
-  <header class="font-semibold text-center sm:col-span-2">
+<body class="space-y-2 p-2 font-mono bg-zinc-800 text-zinc-100 grid grid-cols-2 gap-x-2">
+  <header class="font-semibold text-center col-span-2">
     Word-Maker
   </header>
 
@@ -27,7 +27,7 @@
   </section>
 
   <section
-    class="space-y-2 p-2 bg-zinc-700 shadow rounded-lg text-center text-zinc-900 text-2xl"
+    class="space-y-2 p-2 bg-zinc-700 shadow rounded-lg text-center text-zinc-900 text-2xl col-span-2"
     id="letter-container"
   >
     <div id="letter-row-1" class="flex gap-2 justify-center">
@@ -41,7 +41,7 @@
   </section>
 
   <section
-    class="p-2 bg-zinc-700 shadow rounded-lg"
+    class="p-2 bg-zinc-700 shadow rounded-lg col-span-2"
     id="current-word-container"
   >
     <input
@@ -64,12 +64,12 @@
   </section>
 
   <section
-    class="space-y-4 p-2 bg-zinc-700 shadow rounded-lg sm:col-span-2"
+    class="p-2 bg-zinc-700 shadow rounded-lg col-span-2"
     id="correct-words-container"
   >
   </section>
 
-  <section class="flex place-content-center">
+  <section class="flex place-content-center col-span-2">
     <button
       class="p-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer"
       id="play-again"
