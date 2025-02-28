@@ -129,6 +129,7 @@ function handleCheckGuess(event) {
   } else if (state.correctGuesses.includes(guess)) {
     // If the word has already been guessed:
     console.log('word already guessed!');
+    animateDuplicateWord(guess);
   } else {
     // If the word is NOT a valid word... :
     console.log('in the false branch');
@@ -294,12 +295,22 @@ function renderPoints() {
 }
 
 function animateCorrectWord(word) {
-  wordEl = document.getElementById(`${word}`);
+  wordEl = document.getElementById(word);
   // Remove existing background, add lime background:
   wordEl.classList.add('duration-1000', 'bg-lime-500');
   // Remove colour after brief period of time:
   setTimeout(() => {
     wordEl.classList.remove('bg-lime-500');
+  }, 750);
+}
+
+function animateDuplicateWord(word) {
+  wordEl = document.getElementById(word);
+  // Remove existing background, add lime background:
+  wordEl.classList.add('duration-1000', 'bg-yellow-500');
+  // Remove colour after brief period of time:
+  setTimeout(() => {
+    wordEl.classList.remove('bg-yellow-500');
   }, 750);
 }
 
