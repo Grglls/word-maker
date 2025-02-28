@@ -184,6 +184,11 @@ function retrieveValidWords() {
     // Start by assuming that the word is valid:
     let valid = true;
 
+    // Ignore words < 3 letter long:
+    if (word.length < 3) {
+      valid = false;
+    }
+
     // If any letter in the word isn't in the set of letters, set 'valid' to false:
     for ( let i = 0; i < word.length; i++ ) {
       if ( !state.randomSet.includes(word[i]) ) {
