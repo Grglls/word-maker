@@ -114,7 +114,10 @@ function handleBackspace() {
 function handleCheckGuess(event) {
   // If the game has already finished, exit the function:
   if (state.result !== null) return;
-  
+
+  // If the text input field is empty, exit the function:
+  if (elements.textInput.value === '') return;
+
   // Convert the typed guess to all lower case:
   const guess = elements.textInput.value.toLowerCase();
   console.log('The guess was: ', guess);
