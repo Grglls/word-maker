@@ -248,6 +248,7 @@ function renderAllWords() {
     if (!document.getElementById(firstWord)) {
       elements.correctWords.innerHTML = '';
       elements.correctWords.prepend(renderOneWord(firstWord));
+      animateCorrectWord(firstWord);
     }
   } else {
     // Otherwise, prepend the most recent guess to the list of guesses:
@@ -258,6 +259,7 @@ function renderAllWords() {
     
     elements.correctWords.prepend(', ');
     elements.correctWords.prepend(renderOneWord(lastWord));
+    animateCorrectWord(lastWord);
   }
 }
 
@@ -289,6 +291,16 @@ function renderPoints() {
   pointsElement = document.createElement('div');
   pointsElement.innerText = `${state.points} points`;
   elements.points.appendChild(pointsElement);
+}
+
+function animateCorrectWord(word) {
+  wordEl = document.getElementById(`${word}`);
+  // Remove existing background, add lime background:
+  wordEl.classList.add('duration-1000', 'bg-lime-500');
+  // Remove colour after brief period of time:
+  setTimeout(() => {
+    wordEl.classList.remove('bg-lime-500');
+  }, 750);
 }
 
 // Solver function (enters all valid words to fastforward to end of game):
