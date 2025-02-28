@@ -37,6 +37,7 @@ const elements = {
   message: document.getElementById('message-container'),
   points: document.getElementById('points-container'),
   correctWords: document.getElementById('correct-words-container'),
+  // letterContainer: document.getElementById('letter-container'),
   letterContainer: document.getElementById('letter-container'),
   textInput: document.getElementById('current-guess'), // The input field
   backspaceButton: document.getElementById('backspace'), // The backspace button
@@ -228,39 +229,13 @@ function render() {
 }
 
 function renderAllLetters() {
-  // Retrieve the three rows of letters:
-  const keyboardRows = elements.letterContainer.children;
-
-  // Clear out the current letters:
-  for (let i = 0; i < 3; i++) {
-    keyboardRows[i].innerHTML = '';
+  // Render the regular letters into their divs:
+  for (let i = 0; i < 6; i++) {
+    document.getElementById(`letter-${i}`).innerHTML = state.otherLetters[i];
   }
 
-  // Render 2 letters to the first row:
-  for (let i = 0; i < 2; i++) {
-    keyboardRows[0].appendChild(renderOneLetter(state.otherLetters[i]));
-  }
-
-  // Render 3 letters to the middle row, with the key letter in the middle:
-  keyboardRows[1].appendChild(renderOneLetter(state.otherLetters[2]));
-  keyboardRows[1].appendChild(renderOneLetter(state.keyLetter));
-  keyboardRows[1].appendChild(renderOneLetter(state.otherLetters[3]));
-
-  // Render 2 letters to the last row:
-  for (let i = 4; i < state.otherLetters.length; i++) {
-    keyboardRows[2].appendChild(renderOneLetter(state.otherLetters[i]));
-  }
-}
-
-function renderOneLetter(letter) {
-  letterElement = document.createElement('div');
-  letterElement.innerText = letter;
-  if (letter === state.keyLetter) {
-    letterElement.classList.add('letter', 'px-4', 'py-2', 'bg-lime-500', 'shadow', 'rounded-md', 'cursor-pointer');
-  } else {
-    letterElement.classList.add('letter', 'px-4', 'py-2', 'bg-white', 'shadow', 'rounded-md', 'cursor-pointer');
-  }
-  return letterElement;
+  // Render the key letter into it's div:
+  document.getElementById('letter-key').innerHTML = state.keyLetter;
 }
 
 function renderAllWords() {
