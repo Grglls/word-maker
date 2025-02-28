@@ -9,4 +9,15 @@
     75% { transform: translateX(5px) }
     100% { transform: translateX(0) }
   }
+
+  --animate-wiggle: wiggle 0.15s ease-in-out 3;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
 }

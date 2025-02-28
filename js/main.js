@@ -144,6 +144,7 @@ function handleCheckGuess(event) {
 
   // Check for winner:
   state.result = checkWinner();
+  if (state.result) animateWinGame();
 
   // Run render():
   render();
@@ -324,6 +325,40 @@ function animateIncorrectWord() {
   setTimeout(() => {
     elements.textInput.classList.remove('animate-shakeX');
   }, 750);
+}
+
+function animateWinGame() {
+  const translations = [
+    {id: 'letter-0', trans: ['-translate-4']},
+    {id: 'letter-1', trans: ['translate-x-4', '-translate-y-4']},
+    {id: 'letter-3', trans: ['translate-x-4']},
+    {id: 'letter-5', trans: ['translate-4']},
+    {id: 'letter-4', trans: ['-translate-x-4', 'translate-y-4']},
+    {id: 'letter-2', trans: ['-translate-x-4']},
+  ];
+
+  const interval = 100; // Interval between animations of the regular letters.
+  const duration = 200; // Duration of the animations of the regular letters.
+  const totalTime = interval * 5 + duration; // Total time for all regular letter animations.
+  const duration2 = 450; // Duration of the animation of the the key letter.
+  
+  // Pop-out the regular letters one-by-one clockwise:
+  for (let i = 0; i < 6; i++) {
+    setTimeout(() => {
+      document.getElementById(translations[i].id).classList.add(...translations[i].trans);
+    }, interval * i);
+    setTimeout(() => {
+      document.getElementById(translations[i].id).classList.remove(...translations[i].trans);
+    }, interval * i + duration);
+  }
+  
+  // Enlarge and ping the key letter:
+  setTimeout(() => {
+    document.getElementById('letter-key').classList.add('scale-175', 'animate-wiggle');
+  }, totalTime );
+  setTimeout(() => {
+    document.getElementById('letter-key').classList.remove('scale-175', 'animate-wiggle');
+  }, totalTime + duration2 );
 }
 
 // Solver function (enters all valid words to fastforward to end of game):
