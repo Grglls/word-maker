@@ -217,7 +217,7 @@ function checkWinner() {
 
 function render() {
   renderAllLetters();
-  renderWords();
+  renderAllWords();
   renderMessage();
   renderPoints();
 }
@@ -258,38 +258,36 @@ function renderOneLetter(letter) {
   return letterElement;
 }
 
-function renderWords() {
-  // Clear out the current wordContainer:
-  elements.correctWords.innerHTML = '';
-
+function renderAllWords() {
   if ( state.correctGuesses.length === 0 ) {
-    wordElement = document.createElement('div');
-    wordElement.innerText = 'Guess a word to begin...';
-    // Append the words to the wordContainer:
-    elements.correctWords.appendChild(wordElement);
-  } else {
-    tableElement = document.createElement('table');
-    tableElement.classList.add('table-auto', 'border-collapse', 'border', 'border-zinc-500');
-    for (let word of state.correctGuesses) {
-      // Create the table row element:
-      tableRowElement = document.createElement('tr');
-      // Create the word and append to the table row:
-      wordElement = document.createElement('td');
-      wordElement.classList.add('border-collapse', 'border', 'border-zinc-500', 'p-2');
-      wordElement.innerText = word;
-      tableRowElement.appendChild(wordElement)
-      // Create the definition and append to the table row:
-      definitionElement = document.createElement('td');
-      definitionElement.classList.add('border-collapse', 'border', 'border-zinc-500', 'p-2');
-      definitionElement.innerText = ALL_WORDS[word];
-      // definitionElement.classList.add('w:auto');
-      tableRowElement.appendChild(definitionElement);
-      // Append the row to the table (prepend to get newest guesses at top):
-      tableElement.prepend(tableRowElement);
+    // If no correct guesses yet, leave a message with instructions:
+    elements.correctWords.innerHTML = 'Guess a word to begin...';
+  } else if ( state.correctGuesses.length === 1 ) {
+    // If the first correct guess hasn't been added yet, delete the previous placeholder text and add it:
+    const firstWord = state.correctGuesses[0];
+    if (!document.getElementById(firstWord)) {
+      elements.correctWords.innerHTML = '';
+      elements.correctWords.prepend(renderOneWord(firstWord));
     }
-    // Append the table to the wordContainer:
-    elements.correctWords.appendChild(tableElement);
+  } else {
+    // Otherwise, prepend the most recent guess to the list of guesses:
+    const lastWord = state.correctGuesses[state.correctGuesses.length - 1];
+
+    // If the last guessed word is already in the list, exit the function:
+    if (document.getElementById(lastWord)) return;
+    
+    elements.correctWords.prepend(', ');
+    elements.correctWords.prepend(renderOneWord(lastWord));
   }
+}
+
+function renderOneWord(word) {
+  // Create a span for the last guessed word and return it:
+  wordElement = document.createElement('span');
+  wordElement.innerText = word;
+  wordElement.setAttribute('id', word);
+
+  return wordElement
 }
 
 function renderMessage() {
