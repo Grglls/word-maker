@@ -133,6 +133,7 @@ function handleCheckGuess(event) {
   } else {
     // If the word is NOT a valid word... :
     console.log('in the false branch');
+    animateIncorrectWord();
   };
   
   // Empty out the input field:
@@ -311,6 +312,14 @@ function animateDuplicateWord(word) {
   // Remove colour after brief period of time:
   setTimeout(() => {
     wordEl.classList.remove('bg-yellow-500');
+  }, 750);
+}
+
+function animateIncorrectWord() {
+  // Add the shaking animation:
+  elements.textInput.classList.add('animate-shakeX');
+  setTimeout(() => {
+    elements.textInput.classList.remove('animate-shakeX');
   }, 750);
 }
 

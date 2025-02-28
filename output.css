@@ -34,6 +34,7 @@
     --default-mono-font-variation-settings: var(
       --font-mono--font-variation-settings
     );
+    --animate-shakeX: shakeX 0.5s ease-in-out 1;
   }
 }
 @layer base {
@@ -262,6 +263,9 @@
   .transform {
     transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
   }
+  .animate-shakeX {
+    animation: var(--animate-shakeX);
+  }
   .cursor-pointer {
     cursor: pointer;
   }
@@ -354,9 +358,6 @@
   }
   .text-zinc-900 {
     color: var(--color-zinc-900);
-  }
-  .uppercase {
-    text-transform: uppercase;
   }
   .italic {
     font-style: italic;
@@ -621,4 +622,21 @@
   syntax: "*";
   inherits: false;
   initial-value: 0;
+}
+@keyframes shakeX {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
