@@ -10,6 +10,11 @@
     --color-lime-500: oklch(0.768 0.233 130.85);
     --color-lime-600: oklch(0.648 0.2 131.684);
     --color-lime-900: oklch(0.405 0.101 131.063);
+    --color-gray-300: oklch(0.872 0.01 258.338);
+    --color-gray-400: oklch(0.707 0.022 261.325);
+    --color-gray-500: oklch(0.551 0.027 264.364);
+    --color-gray-600: oklch(0.446 0.03 256.802);
+    --color-gray-900: oklch(0.21 0.034 264.665);
     --color-zinc-100: oklch(0.967 0.001 286.375);
     --color-zinc-700: oklch(0.37 0.013 285.805);
     --color-zinc-800: oklch(0.274 0.006 286.033);
@@ -457,6 +462,13 @@
       }
     }
   }
+  .hover\:inset-ring-gray-900\/50 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-inset-ring-color: color-mix(in oklab, var(--color-gray-900) 50%, transparent);
+      }
+    }
+  }
   .hover\:inset-ring-lime-900\/50 {
     &:hover {
       @media (hover: hover) {
@@ -470,6 +482,26 @@
       translate: var(--tw-translate-x) var(--tw-translate-y);
     }
   }
+  .active\:bg-gray-300 {
+    &:active {
+      background-color: var(--color-gray-300);
+    }
+  }
+  .active\:bg-gray-400 {
+    &:active {
+      background-color: var(--color-gray-400);
+    }
+  }
+  .active\:bg-gray-500 {
+    &:active {
+      background-color: var(--color-gray-500);
+    }
+  }
+  .active\:bg-gray-600 {
+    &:active {
+      background-color: var(--color-gray-600);
+    }
+  }
   .active\:bg-lime-600 {
     &:active {
       background-color: var(--color-lime-600);
@@ -479,6 +511,11 @@
     &:active {
       --tw-inset-shadow: inset 0 2px 4px var(--tw-inset-shadow-color, rgb(0 0 0 / 0.05));
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .active\:inset-shadow-gray-900 {
+    &:active {
+      --tw-inset-shadow-color: var(--color-gray-900);
     }
   }
   .active\:inset-shadow-lime-900 {
