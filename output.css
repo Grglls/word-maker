@@ -8,6 +8,7 @@
       "Courier New", monospace;
     --color-yellow-500: oklch(0.795 0.184 86.047);
     --color-lime-500: oklch(0.768 0.233 130.85);
+    --color-lime-600: oklch(0.648 0.2 131.684);
     --color-lime-900: oklch(0.405 0.101 131.063);
     --color-zinc-100: oklch(0.967 0.001 286.375);
     --color-zinc-700: oklch(0.37 0.013 285.805);
@@ -467,6 +468,11 @@
     &:active {
       --tw-translate-y: calc(var(--spacing) * 0.5);
       translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
+  }
+  .active\:bg-lime-600 {
+    &:active {
+      background-color: var(--color-lime-600);
     }
   }
   .active\:inset-shadow-sm {
