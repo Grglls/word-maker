@@ -9,124 +9,126 @@
   <script src="assets/common.js"></script>
   <script defer src="js/main.js"></script>
 </head>
-<body class="space-y-2 p-2 font-mono bg-zinc-800 text-zinc-100 grid grid-cols-2 gap-x-2">
-  <header class="font-semibold text-center col-span-2">
-    Word-Maker
-  </header>
-
-  <section
-    class="p-2 bg-zinc-700 shadow rounded-lg text-center"
-    id="message-container"
-  >
-  </section>
-
-  <section
-    class="p-2 bg-zinc-700 shadow rounded-lg text-center"
-    id="points-container"
-  >
-  </section>
-
-  <section
-    class="space-y-2 p-2 bg-zinc-700 shadow rounded-lg text-center text-zinc-900 text-2xl col-span-2"
-    id="letter-container"
-  >
-    <div id="letter-row-1" class="flex gap-2 justify-center">
-      <div ontouchstart id="letter-0" class="letter px-4 py-2 bg-white shadow rounded-md cursor-pointer transition
-        hover:underline hover:inset-ring-3 hover:inset-ring-gray-900/50
-        active:bg-gray-300 active:inset-shadow-sm active:inset-shadow-gray-900 active:translate-y-0.5"
-      >
-      </div>
-      <div ontouchstart id="letter-1" class="letter px-4 py-2 bg-white shadow rounded-md cursor-pointer transition
-        hover:underline hover:inset-ring-3 hover:inset-ring-gray-900/50
-        active:bg-gray-300 active:inset-shadow-sm active:inset-shadow-gray-900 active:translate-y-0.5"
-      >
-      </div>
-    </div>
-    
-    <div id="letter-row-2" class="flex gap-2 justify-center">
-      <div ontouchstart id="letter-2" class="letter px-4 py-2 bg-white shadow rounded-md cursor-pointer transition
-        hover:underline hover:inset-ring-3 hover:inset-ring-gray-900/50
-        active:bg-gray-300 active:inset-shadow-sm active:inset-shadow-gray-900 active:translate-y-0.5"
-      >
-      </div>
-      <div ontouchstart id="letter-key" class="letter px-4 py-2 bg-lime-500 shadow rounded-md cursor-pointer transition
-        hover:underline hover:inset-ring-3 hover:inset-ring-lime-900/50
-        active:bg-lime-600 active:inset-shadow-sm active:inset-shadow-lime-900 active:translate-y-0.5"
-      >
-      </div>
-      <div ontouchstart id="letter-3" class="letter px-4 py-2 bg-white shadow rounded-md cursor-pointer transition
-        hover:underline hover:inset-ring-3 hover:inset-ring-gray-900/50
-        active:bg-gray-300 active:inset-shadow-sm active:inset-shadow-gray-900 active:translate-y-0.5"
-      >
-      </div>
-    </div>
-    
-    <div id="letter-row-3" class="flex gap-2 justify-center">
-      <div ontouchstart id="letter-4" class="letter px-4 py-2 bg-white shadow rounded-md cursor-pointer transition
-        hover:underline hover:inset-ring-3 hover:inset-ring-gray-900/50
-        active:bg-gray-300 active:inset-shadow-sm active:inset-shadow-gray-900 active:translate-y-0.5"
-      >
-      </div>
-      <div ontouchstart id="letter-5" class="letter px-4 py-2 bg-white shadow rounded-md cursor-pointer transition
-        hover:underline hover:inset-ring-3 hover:inset-ring-gray-900/50
-        active:bg-gray-300 active:inset-shadow-sm active:inset-shadow-gray-900 active:translate-y-0.5"
-      >
-      </div>
-    </div>
-  </section>
-
-  <section
-    class="p-2 bg-zinc-700 shadow rounded-lg col-span-2"
-    id="current-word-container"
-  >
-    <input
-      class="rounded-md bg-zinc-800 p-2 mb-2 w-full"
-      id="current-guess"
-      type="text" placeholder="Type a word..."
+<body class="flex flex-col items-center font-mono bg-zinc-800 text-zinc-100">
+  <div class="space-y-2 p-2 grid grid-cols-2 gap-x-2 w-full max-w-lg">
+    <header class="font-semibold text-center col-span-2">
+      Word-Maker
+    </header>
+  
+    <section
+      class="p-2 bg-zinc-700 shadow rounded-lg text-center"
+      id="message-container"
     >
-    <div class="flex justify-between">
-      <button ontouchstart
-        class="p-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer w-full
-        hover:underline hover:inset-ring-3 hover:inset-ring-lime-900/50 
-        active:bg-lime-600 active:inset-shadow-sm active:inset-shadow-lime-900 active:translate-y-0.5"
-        id="backspace"
-      >
-        Backspace
-      </button>
-      <button ontouchstart
-        class="p-2 mx-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer w-full
-        hover:underline hover:inset-ring-3 hover:inset-ring-lime-900/50 
-        active:bg-lime-600 active:inset-shadow-sm active:inset-shadow-lime-900 active:translate-y-0.5"
-        id="check-word"
-      >
-        Check
-      </button>
-      <button ontouchstart
-        class="p-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer w-full
-        hover:underline hover:inset-ring-3 hover:inset-ring-lime-900/50 
-        active:bg-lime-600 active:inset-shadow-sm active:inset-shadow-lime-900 active:translate-y-0.5"
-        id="shuffle"
-      >
-        Shuffle
-      </button>
-    </div>
-  </section>
-
-  <section
-    class="p-2 bg-zinc-700 shadow rounded-lg col-span-2"
-    id="correct-words-container"
-  >
-  </section>
-
-  <section class="flex place-content-center col-span-2">
-    <button ontouchstart
-      class="p-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer
-      hover:underline hover:inset-ring-3 hover:inset-ring-lime-900/50 
-      active:bg-lime-600 active:inset-shadow-sm active:inset-shadow-lime-900 active:translate-y-0.5"
-      id="play-again"
+    </section>
+  
+    <section
+      class="p-2 bg-zinc-700 shadow rounded-lg text-center"
+      id="points-container"
     >
-      Play Again
-    </button>
-  </section>
+    </section>
+  
+    <section
+      class="space-y-2 p-2 bg-zinc-700 shadow rounded-lg text-center text-zinc-900 text-2xl col-span-2"
+      id="letter-container"
+    >
+      <div id="letter-row-1" class="flex gap-2 justify-center">
+        <div ontouchstart id="letter-0" class="letter px-4 py-2 bg-white shadow rounded-md cursor-pointer transition
+          hover:underline hover:inset-ring-3 hover:inset-ring-gray-900/50
+          active:bg-gray-300 active:inset-shadow-sm active:inset-shadow-gray-900 active:translate-y-0.5"
+        >
+        </div>
+        <div ontouchstart id="letter-1" class="letter px-4 py-2 bg-white shadow rounded-md cursor-pointer transition
+          hover:underline hover:inset-ring-3 hover:inset-ring-gray-900/50
+          active:bg-gray-300 active:inset-shadow-sm active:inset-shadow-gray-900 active:translate-y-0.5"
+        >
+        </div>
+      </div>
+      
+      <div id="letter-row-2" class="flex gap-2 justify-center">
+        <div ontouchstart id="letter-2" class="letter px-4 py-2 bg-white shadow rounded-md cursor-pointer transition
+          hover:underline hover:inset-ring-3 hover:inset-ring-gray-900/50
+          active:bg-gray-300 active:inset-shadow-sm active:inset-shadow-gray-900 active:translate-y-0.5"
+        >
+        </div>
+        <div ontouchstart id="letter-key" class="letter px-4 py-2 bg-lime-500 shadow rounded-md cursor-pointer transition
+          hover:underline hover:inset-ring-3 hover:inset-ring-lime-900/50
+          active:bg-lime-600 active:inset-shadow-sm active:inset-shadow-lime-900 active:translate-y-0.5"
+        >
+        </div>
+        <div ontouchstart id="letter-3" class="letter px-4 py-2 bg-white shadow rounded-md cursor-pointer transition
+          hover:underline hover:inset-ring-3 hover:inset-ring-gray-900/50
+          active:bg-gray-300 active:inset-shadow-sm active:inset-shadow-gray-900 active:translate-y-0.5"
+        >
+        </div>
+      </div>
+      
+      <div id="letter-row-3" class="flex gap-2 justify-center">
+        <div ontouchstart id="letter-4" class="letter px-4 py-2 bg-white shadow rounded-md cursor-pointer transition
+          hover:underline hover:inset-ring-3 hover:inset-ring-gray-900/50
+          active:bg-gray-300 active:inset-shadow-sm active:inset-shadow-gray-900 active:translate-y-0.5"
+        >
+        </div>
+        <div ontouchstart id="letter-5" class="letter px-4 py-2 bg-white shadow rounded-md cursor-pointer transition
+          hover:underline hover:inset-ring-3 hover:inset-ring-gray-900/50
+          active:bg-gray-300 active:inset-shadow-sm active:inset-shadow-gray-900 active:translate-y-0.5"
+        >
+        </div>
+      </div>
+    </section>
+  
+    <section
+      class="p-2 bg-zinc-700 shadow rounded-lg col-span-2"
+      id="current-word-container"
+    >
+      <input
+        class="rounded-md bg-zinc-800 p-2 mb-2 w-full"
+        id="current-guess"
+        type="text" placeholder="Type a word..."
+      >
+      <div class="flex justify-between">
+        <button ontouchstart
+          class="p-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer w-full
+          hover:underline hover:inset-ring-3 hover:inset-ring-lime-900/50 
+          active:bg-lime-600 active:inset-shadow-sm active:inset-shadow-lime-900 active:translate-y-0.5"
+          id="backspace"
+        >
+          Backspace
+        </button>
+        <button ontouchstart
+          class="p-2 mx-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer w-full
+          hover:underline hover:inset-ring-3 hover:inset-ring-lime-900/50 
+          active:bg-lime-600 active:inset-shadow-sm active:inset-shadow-lime-900 active:translate-y-0.5"
+          id="check-word"
+        >
+          Check
+        </button>
+        <button ontouchstart
+          class="p-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer w-full
+          hover:underline hover:inset-ring-3 hover:inset-ring-lime-900/50 
+          active:bg-lime-600 active:inset-shadow-sm active:inset-shadow-lime-900 active:translate-y-0.5"
+          id="shuffle"
+        >
+          Shuffle
+        </button>
+      </div>
+    </section>
+  
+    <section
+      class="p-2 bg-zinc-700 shadow rounded-lg col-span-2"
+      id="correct-words-container"
+    >
+    </section>
+  
+    <section class="flex place-content-center col-span-2">
+      <button ontouchstart
+        class="p-2 bg-lime-500 content-center rounded-md text-zinc-900 cursor-pointer
+        hover:underline hover:inset-ring-3 hover:inset-ring-lime-900/50 
+        active:bg-lime-600 active:inset-shadow-sm active:inset-shadow-lime-900 active:translate-y-0.5"
+        id="play-again"
+      >
+        Play Again
+      </button>
+    </section>
+  </div>
 </body>
 </html>
