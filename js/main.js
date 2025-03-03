@@ -1,12 +1,4 @@
-/*------------------------- version -------------------------*/
-console.log('version 1.0');
-
 /*------------------------- constants -------------------------*/
-// Word list sourced from:
-// https://github.com/dariusk/corpora/blob/master/data/words/common.json
-// https://github.com/rsms/inter/blob/master/docs/lab/words-google-10000-english-usa-no-swears.json
-// https://gist.github.com/BideoWego/60fbd40d5d1f0f1beca11ba95221dd38#file-dictionary-json
-
 // Save the words with 7 unique letters into an array:
 const WORDS_SEVEN_UNIQUE = [];
 const LETTER_SETS = [];
@@ -37,7 +29,6 @@ const elements = {
   message: document.getElementById('message-container'),
   points: document.getElementById('points-container'),
   correctWords: document.getElementById('correct-words-container'),
-  // letterContainer: document.getElementById('letter-container'),
   letterContainer: document.getElementById('letter-container'),
   textInput: document.getElementById('current-guess'), // The input field
   backspaceButton: document.getElementById('backspace'), // The backspace button
