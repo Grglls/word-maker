@@ -20,4 +20,30 @@
       transform: rotate(5deg);
     }
   }
+
+  --animate-correct: correct 1.75s ease-out 1;
+  @keyframes correct {
+    0%, 50% {
+      background: var(--color-lime-500);
+    }
+    100% {
+      background: transparent;
+    }
+  }
+
+  --animate-duplicate: duplicate 1.5s ease-out 1;
+  @keyframes duplicate {
+    0%, 11% {
+      background: var(--color-yellow-500);
+    }
+    12%, 22% {
+      background: transparent;
+    }
+    23%, 34% {
+      background: var(--color-yellow-500);
+    }
+    100% {
+      background: transparent;
+    }
+  }
 }

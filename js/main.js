@@ -44,7 +44,8 @@ elements.letterContainer.addEventListener('click', handleClick);
 elements.backspaceButton.addEventListener('click', handleBackspace);
 elements.checkButton.addEventListener('click', handleCheckGuess);
 elements.shuffleButton.addEventListener('click', shuffleLetters);
-elements.textInput.addEventListener('keypress', handleKeypress);
+// elements.textInput.addEventListener('keypress', handleKeypress);
+document.body.addEventListener('keypress', handleKeypress);
 
 
 /*------------------------- functions -------------------------*/
@@ -292,22 +293,21 @@ function renderPoints() {
 
 function animateCorrectWord(word) {
   wordEl = document.getElementById(word);
-  // Remove existing background, add lime background:
-  wordEl.classList.add('duration-1000', 'bg-lime-500');
-  // Remove colour after brief period of time:
+  // Add the class for the 'correct' animation (lime background):
+  wordEl.classList.add('animate-correct');
+  // Remove the animation class once finished:
   setTimeout(() => {
-    wordEl.classList.remove('bg-lime-500');
-  }, 750);
+    wordEl.classList.remove('animate-correct');
+  }, 1750);
 }
 
 function animateDuplicateWord(word) {
   wordEl = document.getElementById(word);
-  // Remove existing background, add lime background:
-  wordEl.classList.add('duration-1000', 'bg-yellow-500');
-  // Remove colour after brief period of time:
+  // Flash yellow background first time:
+  wordEl.classList.add('animate-duplicate');
   setTimeout(() => {
-    wordEl.classList.remove('bg-yellow-500');
-  }, 750);
+      wordEl.classList.remove('animate-duplicate');
+  }, 1500);
 }
 
 function animateIncorrectWord() {
