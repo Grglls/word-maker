@@ -44,7 +44,6 @@ elements.letterContainer.addEventListener('click', handleClick);
 elements.backspaceButton.addEventListener('click', handleBackspace);
 elements.checkButton.addEventListener('click', handleCheckGuess);
 elements.shuffleButton.addEventListener('click', shuffleLetters);
-// elements.textInput.addEventListener('keypress', handleKeypress);
 document.body.addEventListener('keypress', handleKeypress);
 
 
@@ -271,14 +270,18 @@ function renderOneWord(word) {
 }
 
 function renderMessage() {
-  // Clear out the previous message:
-  elements.message.innerHTML = '';
-
   // Render the number of correctly guessed words and the total possible:
   const text = `${state.correctGuesses.length} / ${state.validWords.length} words`;
-  messageElement = document.createElement('div');
-  messageElement.innerText = text;
-  elements.message.appendChild(messageElement);
+  elements.message.innerText = text;
+
+  // Colour the div 'gold' if all the words have been found:
+  if (state.correctGuesses.length === state.validWords.length) {
+    elements.message.classList.remove('bg-zinc-700');
+    elements.message.classList.add('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
+  } else {
+    elements.message.classList.remove('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
+    elements.message.classList.add('bg-zinc-700');
+  }
 }
 
 function renderPoints() {
