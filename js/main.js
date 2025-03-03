@@ -293,7 +293,7 @@ function renderPoints() {
 
 function animateCorrectWord(word) {
   wordEl = document.getElementById(word);
-  // Add the class for the 'correct' animation (lime background):
+  // Add the 'correct' animation (lime background):
   wordEl.classList.add('animate-correct');
   // Remove the animation class once finished:
   setTimeout(() => {
@@ -303,8 +303,9 @@ function animateCorrectWord(word) {
 
 function animateDuplicateWord(word) {
   wordEl = document.getElementById(word);
-  // Flash yellow background first time:
+  // Add the 'correct' animation (flash yellow background):
   wordEl.classList.add('animate-duplicate');
+  // Remove the animation class once finished:
   setTimeout(() => {
       wordEl.classList.remove('animate-duplicate');
   }, 1500);
