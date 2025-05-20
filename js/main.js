@@ -50,10 +50,10 @@ document.body.addEventListener('keypress', handleKeypress);
 init();
 
 function init () {
-  state.randomSet = randomLetterSet();
-  state.keyLetter = randomLetter();
-  state.otherLetters = otherLetters();
-  state.validWords = retrieveValidWords();
+  state.randomSet = getRandomLetterSet();
+  state.keyLetter = getRandomLetter();
+  state.otherLetters = getOtherLetters();
+  state.validWords = getValidWords();
   state.correctGuesses = [];
   state.result = null;
   state.points = 0;
@@ -136,20 +136,20 @@ function handleCheckGuess(event) {
   render();
 }
 
-function randomLetterSet() {
+function getRandomLetterSet() {
   const index = Math.floor( Math.random() * LETTER_SETS.length );
   // Turn the set into an array for easier manipulation:
   const set = [...LETTER_SETS[index]];
   return set;
 }
 
-function randomLetter() {
+function getRandomLetter() {
   const index = Math.floor( Math.random() * state.randomSet.length );
   const keyLetter = state.randomSet[index];
   return keyLetter;
 }
 
-function otherLetters() {
+function getOtherLetters() {
   const otherLetters = [];
 
   // Add the letters that aren't the keyLetter to the otherLetters array:
@@ -167,7 +167,7 @@ function shuffleLetters() {
   render();
 }
 
-function retrieveValidWords() {
+function getValidWords() {
   const validWords = [];
   // Add the words that contain only the keyLetter and the otherLetters:
   for (let word in ALL_WORDS) {
