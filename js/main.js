@@ -1,10 +1,9 @@
 /*------------------------- constants -------------------------*/
-// Save the words with 7 unique letters into an array:
+// Save the words with 7 unique letters from the wordlist to an array:
 const WORDS_SEVEN_UNIQUE = [];
 const LETTER_SETS = [];
 for (const word in ALL_WORDS) {
   const uniqueLetters = new Set(word.split(""));
-  // console.log('The set of letters is: ', uniqueLetters)
   if (uniqueLetters.size === 7) {
     WORDS_SEVEN_UNIQUE.push(word);
     LETTER_SETS.push(uniqueLetters);
@@ -111,22 +110,18 @@ function handleCheckGuess(event) {
 
   // Convert the typed guess to all lower case:
   const guess = elements.textInput.value.toLowerCase();
-  console.log('The guess was: ', guess);
   
   // Check if the guessed word is a valid word and hasn't already been guessed:
   if (state.validWords.includes(guess) && !state.correctGuesses.includes(guess)) {
     // If the word is a valid word, push it the the correct guesses array:
-    console.log('in the true branch');
     state.correctGuesses.push(guess);
     // Add points equal to the length of the word:
     state.points += guess.length;
   } else if (state.correctGuesses.includes(guess)) {
     // If the word has already been guessed:
-    console.log('word already guessed!');
     animateDuplicateWord(guess);
   } else {
     // If the word is NOT a valid word... :
-    console.log('in the false branch');
     animateIncorrectWord();
   };
   
@@ -145,14 +140,12 @@ function randomLetterSet() {
   const index = Math.floor( Math.random() * LETTER_SETS.length );
   // Turn the set into an array for easier manipulation:
   const set = [...LETTER_SETS[index]];
-  console.log('The random letter set is: ', set);
   return set;
 }
 
 function randomLetter() {
   const index = Math.floor( Math.random() * state.randomSet.length );
   const keyLetter = state.randomSet[index];
-  console.log('The key letter is: ', keyLetter);
   return keyLetter;
 }
 
@@ -166,7 +159,6 @@ function otherLetters() {
     }
   }
   // state.randomSet.forEach(element => element !== state.keyLetter ? '' : element);
-  console.log('The other letters are: ', otherLetters);
   return otherLetters;
 }
 
@@ -203,12 +195,9 @@ function retrieveValidWords() {
     // If the word passes the tests, add it to the list of valid words:
     if (valid === true) {
       validWords.push(word);
-      console.log(word, ' is a valid word');
     };
   }
 
-  console.log(ALL_WORDS.length, ' total words');
-  console.log(validWords.length, ' valid words gathered.');
   return validWords;
 }
 
@@ -266,7 +255,7 @@ function renderOneWord(word) {
   wordElement.innerText = word;
   wordElement.setAttribute('id', word);
 
-  return wordElement
+  return wordElement;
 }
 
 function renderMessage() {
