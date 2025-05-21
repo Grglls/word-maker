@@ -84,11 +84,8 @@ function handleKeypress(event) {
   // If the game has already finished, exit the function:
   if (state.result !== null) return;
 
-  // Check if the key pressed is the Enter key:
+  // If the key is the Enter key, invoke a click on the 'check' button:
   if(event.key === 'Enter') {
-    // Prevent the default method:
-    event.preventDefault();
-    // Invoke a click on the check word button:
     elements.checkButton.click();
   }
 }
