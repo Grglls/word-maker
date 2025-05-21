@@ -159,7 +159,7 @@ function getValidWords() {
   const validWords = [];
   // Add the words that contain only the keyLetter and the otherLetters:
   for (let word in ALL_WORDS) {
-    // Start by assuming that the word is valid:
+    // Initially assume that the word is valid:
     let valid = true;
 
     // Ignore words < 3 letter long:
