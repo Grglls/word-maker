@@ -51,7 +51,7 @@ init();
 
 function init () {
   state.randomSet = getRandomLetterSet();
-  state.keyLetter = getRandomLetter();
+  state.keyLetter = getKeyLetter();
   state.otherLetters = getOtherLetters();
   state.validWords = getValidWords();
   state.correctGuesses = [];
@@ -143,7 +143,7 @@ function getRandomLetterSet() {
   return set;
 }
 
-function getRandomLetter() {
+function getKeyLetter() {
   const index = Math.floor( Math.random() * state.randomSet.length );
   const keyLetter = state.randomSet[index];
   return keyLetter;
