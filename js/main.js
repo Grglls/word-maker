@@ -163,9 +163,10 @@ function getValidWords() {
     let valid = true;
 
     // Ignore words < 3 letter long:
-    if (word.length < 3) {
-      valid = false;
-    }
+    if (word.length < 3) continue;
+
+    // Ignore words that don't contain the key letter:
+    if ( !word.includes(state.keyLetter) ) continue;
 
     // If any letter in the word isn't in the set of letters, set 'valid' to false:
     for ( let i = 0; i < word.length; i++ ) {
@@ -173,11 +174,6 @@ function getValidWords() {
         valid = false;
         break;
       }
-    }
-
-    // If the key letter isn't in the word, set 'valid' to false:
-    if ( !word.includes(state.keyLetter) ) {
-      valid = false;
     }
 
     // If the word passes the tests, add it to the list of valid words:
