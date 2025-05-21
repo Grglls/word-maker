@@ -260,13 +260,7 @@ function renderMessage() {
 }
 
 function renderPoints() {
-  // Clear out the previous message:
-  elements.points.innerHTML = '';
-
-  // Render the number of points:
-  pointsElement = document.createElement('div');
-  pointsElement.innerText = `${state.points} points`;
-  elements.points.appendChild(pointsElement);
+  elements.points.innerText = `${state.points} points`;
 }
 
 function animateCorrectWord(word) {
