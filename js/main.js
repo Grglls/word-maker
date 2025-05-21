@@ -150,16 +150,7 @@ function getRandomLetter() {
 }
 
 function getOtherLetters() {
-  const otherLetters = [];
-
-  // Add the letters that aren't the keyLetter to the otherLetters array:
-  for ( let i = 0; i < state.randomSet.length; i++ ) {
-    if (state.randomSet[i] !== state.keyLetter ) {
-      otherLetters.push(state.randomSet[i]);
-    }
-  }
-  // state.randomSet.forEach(element => element !== state.keyLetter ? '' : element);
-  return otherLetters;
+  return [...state.randomSet].filter(letter => letter !== state.keyLetter);
 }
 
 function shuffleLetters() {
