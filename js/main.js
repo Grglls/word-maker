@@ -279,7 +279,7 @@ function animateDuplicateWord(word) {
   wordEl.classList.add('animate-duplicate');
   // Remove the animation class once finished:
   setTimeout(() => {
-      wordEl.classList.remove('animate-duplicate');
+    wordEl.classList.remove('animate-duplicate');
   }, 1500);
 }
 
