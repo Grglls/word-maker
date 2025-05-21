@@ -220,7 +220,7 @@ function renderAllWords() {
     // If no correct guesses yet, leave a message with instructions:
     elements.correctWords.innerHTML = 'Guess a word to begin...';
   } else if ( state.correctGuesses.length === 1 ) {
-    // If the first correct guess hasn't been added yet, delete the previous placeholder text and add it:
+    // If the first correct guess hasn't been added yet, delete the placeholder text and add it:
     const firstWord = state.correctGuesses[0];
     if (!document.getElementById(firstWord)) {
       elements.correctWords.innerHTML = '';
@@ -228,15 +228,13 @@ function renderAllWords() {
       animateCorrectWord(firstWord);
     }
   } else {
-    // Otherwise, prepend the most recent guess to the list of guesses:
+    // Otherwise, prepend the most recent guess to the list of guesses if it hasn't been added yet:
     const lastWord = state.correctGuesses[state.correctGuesses.length - 1];
-
-    // If the last guessed word is already in the list, exit the function:
-    if (document.getElementById(lastWord)) return;
-    
-    elements.correctWords.prepend(', ');
-    elements.correctWords.prepend(renderOneWord(lastWord));
-    animateCorrectWord(lastWord);
+    if (!document.getElementById(lastWord)) {
+      elements.correctWords.prepend(', ');
+      elements.correctWords.prepend(renderOneWord(lastWord));
+      animateCorrectWord(lastWord);
+    }
   }
 }
 
