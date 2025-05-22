@@ -257,6 +257,15 @@ function renderMessage() {
 
 function renderPoints() {
   elements.points.innerText = `${state.points} points`;
+
+  // Colour the div 'gold' if all the words have been found:
+  if (state.correctGuesses.length === state.validWords.length) {
+    elements.points.classList.remove('bg-zinc-700');
+    elements.points.classList.add('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
+  } else {
+    elements.points.classList.remove('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
+    elements.points.classList.add('bg-zinc-700');
+  }
 }
 
 function animateCorrectWord(word) {
