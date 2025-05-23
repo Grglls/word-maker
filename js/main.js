@@ -195,11 +195,39 @@ function checkWinner() {
 }
 
 function render() {
-  renderAllLetters();
-  renderAllWords();
   renderMessage();
   renderPoints();
+  renderAllLetters();
   renderButtons();
+  renderAllWords();
+}
+
+function renderMessage() {
+  // Render the number of correctly guessed words and the total possible:
+  const text = `${state.correctGuesses.length} / ${state.validWords.length} words`;
+  elements.message.innerText = text;
+
+  // Colour the div 'gold' if all the words have been found:
+  if (state.correctGuesses.length === state.validWords.length) {
+    elements.message.classList.remove('bg-zinc-700');
+    elements.message.classList.add('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
+  } else {
+    elements.message.classList.remove('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
+    elements.message.classList.add('bg-zinc-700');
+  }
+}
+
+function renderPoints() {
+  elements.points.innerText = `${state.points} points`;
+
+  // Colour the div 'gold' if all the words have been found:
+  if (state.correctGuesses.length === state.validWords.length) {
+    elements.points.classList.remove('bg-zinc-700');
+    elements.points.classList.add('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
+  } else {
+    elements.points.classList.remove('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
+    elements.points.classList.add('bg-zinc-700');
+  }
 }
 
 function renderAllLetters() {
@@ -210,6 +238,20 @@ function renderAllLetters() {
 
   // Render the key letter into it's div:
   document.getElementById('letter-key').innerHTML = state.keyLetter;
+}
+
+function renderButtons() {
+  buttons = [elements.backspaceButton, elements.checkButton, elements.shuffleButton];
+  
+  for (btn of buttons) {
+    if (state.result === null) {
+      btn.classList.remove('bg-lime-800');
+      btn.classList.add('bg-lime-500', "active:bg-lime-600");
+    } else {
+      btn.classList.remove('bg-lime-500', "active:bg-lime-600");
+      btn.classList.add('bg-lime-800');
+    }
+  }
 }
 
 function renderAllWords() {
@@ -242,48 +284,6 @@ function renderOneWord(word) {
   wordElement.setAttribute('id', word);
 
   return wordElement;
-}
-
-function renderMessage() {
-  // Render the number of correctly guessed words and the total possible:
-  const text = `${state.correctGuesses.length} / ${state.validWords.length} words`;
-  elements.message.innerText = text;
-
-  // Colour the div 'gold' if all the words have been found:
-  if (state.correctGuesses.length === state.validWords.length) {
-    elements.message.classList.remove('bg-zinc-700');
-    elements.message.classList.add('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
-  } else {
-    elements.message.classList.remove('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
-    elements.message.classList.add('bg-zinc-700');
-  }
-}
-
-function renderPoints() {
-  elements.points.innerText = `${state.points} points`;
-
-  // Colour the div 'gold' if all the words have been found:
-  if (state.correctGuesses.length === state.validWords.length) {
-    elements.points.classList.remove('bg-zinc-700');
-    elements.points.classList.add('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
-  } else {
-    elements.points.classList.remove('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
-    elements.points.classList.add('bg-zinc-700');
-  }
-}
-
-function renderButtons() {
-  buttons = [elements.backspaceButton, elements.checkButton, elements.shuffleButton];
-  
-  for (btn of buttons) {
-    if (state.result === null) {
-      btn.classList.remove('bg-lime-800');
-      btn.classList.add('bg-lime-500', "active:bg-lime-600");
-    } else {
-      btn.classList.remove('bg-lime-500', "active:bg-lime-600");
-      btn.classList.add('bg-lime-800');
-    }
-  }
 }
 
 function animateCorrectWord(word) {
