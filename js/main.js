@@ -198,6 +198,7 @@ function render() {
   renderMessage();
   renderPoints();
   renderAllLetters();
+  renderInput();
   renderButtons();
   renderAllWords();
 }
@@ -238,6 +239,18 @@ function renderAllLetters() {
 
   // Render the key letter into it's div:
   document.getElementById('letter-key').innerHTML = state.keyLetter;
+}
+
+function renderInput() {
+  if (state.result === null) {
+    elements.textInput.setAttribute('placeholder', 'Type a word...');
+    elements.textInput.removeAttribute('disabled');
+    elements.textInput.classList.remove('text-center');
+  } else {
+    elements.textInput.setAttribute('placeholder', 'You win!');
+    elements.textInput.setAttribute('disabled', '');
+    elements.textInput.classList.add('text-center');
+  }
 }
 
 function renderButtons() {
