@@ -151,6 +151,9 @@ function getOtherLetters() {
 }
 
 function shuffleLetters() {
+  // If the game has already finished, exit the function:
+  if (state.result !== null) return;
+  // Otherwise, shuffle the letters and re-render:
   state.otherLetters = state.otherLetters.sort(() => Math.random() - 0.5);
   render();
 }
