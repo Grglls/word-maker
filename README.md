@@ -6,7 +6,8 @@ The game adopts the Model-View-Controller (MVC) approach for the code's architec
 [Try it out.](https://grglls.github.io/word-maker/)
 
 ## Screenshots:
-| ![New game](assets/screenshots/1_start.png)  | ![Correct guess](assets/screenshots/2_correct.gif) | ![Repeat correct guess](assets/screenshots/3_repeat.gif) |
+| ![New game](assets/screenshots/1_start.png)  | <video src="https://github.com/user-attachments/assets/64973ffa-8441-42bd-a4b9-295db0a21ac5"></video>
+ | ![Repeat correct guess](assets/screenshots/3_repeat.gif) |
 |:---:|:---:|:---:|
 | New game | Correct guess | Repeat correct guess |
 | ![Incorrect guess](assets/screenshots/4_incorrect.gif)  | ![Shuffle letters](assets/screenshots/5_shuffle.gif) | ![Won game](assets/screenshots/6_win.gif) |
