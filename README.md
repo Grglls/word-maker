@@ -36,10 +36,10 @@ The game adopts the Model-View-Controller (MVC) approach for the code's architec
 * Find a better (i.e. more modern) word list.
 * Add option to end the game and see words that weren't found.
 * Add sounds to go along with the animations incorrect guess, correct guess, win & game over.
-* Daily mode.
+* Add a daily mode (i.e. everyone gets the same puzzle on a given day).
 
 ## Known Bugs:
-The word list used is missing some common words, and also includes some words that are very obscure or from old-english. This makes the game difficult to impossible to win.
+The word list is missing some common words, while also including some words that are very obscure or archaic. This makes the game difficult to impossible to win.
 
 ## Acknowledgements:
 Word list sourced from [here](https://gist.github.com/BideoWego/60fbd40d5d1f0f1beca11ba95221dd38#file-dictionary-json).
