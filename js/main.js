@@ -199,6 +199,7 @@ function render() {
   renderAllWords();
   renderMessage();
   renderPoints();
+  renderButtons();
 }
 
 function renderAllLetters() {
@@ -268,6 +269,20 @@ function renderPoints() {
   } else {
     elements.points.classList.remove('bg-yellow-500', 'animate-pulse', 'text-zinc-900');
     elements.points.classList.add('bg-zinc-700');
+  }
+}
+
+function renderButtons() {
+  buttons = [elements.backspaceButton, elements.checkButton, elements.shuffleButton];
+  
+  for (btn of buttons) {
+    if (state.result === null) {
+      btn.classList.remove('bg-lime-800');
+      btn.classList.add('bg-lime-500', "active:bg-lime-600");
+    } else {
+      btn.classList.remove('bg-lime-500', "active:bg-lime-600");
+      btn.classList.add('bg-lime-800');
+    }
   }
 }
 
