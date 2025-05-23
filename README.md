@@ -6,11 +6,12 @@ The game adopts the Model-View-Controller (MVC) approach for the code's architec
 [Try it out.](https://grglls.github.io/word-maker/)
 
 ## Screenshots:
-| ![New game](assets/screenshots/1_start.png)  | <video src="https://github.com/user-attachments/assets/64973ffa-8441-42bd-a4b9-295db0a21ac5" width="30%"></video>
- | <video src="https://github.com/user-attachments/assets/eaa6ee63-4d07-4dd6-ae6b-97c23ad9d96f" width="30%"></video> |
+| ![New game](assets/screenshots/1_start.png) | ![Correct guess](assets/screenshots/2_correct.gif) | ![Repeat correct guess](assets/screenshots/3_repeat.gif) |
 |:---:|:---:|:---:|
 | New game | Correct guess | Repeat correct guess |
-| <video src="https://github.com/user-attachments/assets/66532ea9-21c7-473f-b28b-5acbc2a3f4ac" width="30%"></video> | <video src="https://github.com/user-attachments/assets/575d5058-ded9-4c8e-874b-e6c4d8ea9e4c" width="30%"></video> | <video src="https://github.com/user-attachments/assets/08705e62-b91e-4f40-b93c-691c5a04986a" width="30%"></video> |
+
+| ![Incorrect guess](assets/screenshots/4_incorrect.gif) | ![Shuffle letters](assets/screenshots/5_shuffle.gif) | ![Won game](assets/screenshots/6_win.gif) |
+|:---:|:---:|:---:|
 | Incorrect guess | Shuffle letters | Won game |
 
 ## Technologies Used:
