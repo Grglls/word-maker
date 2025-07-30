@@ -16,7 +16,7 @@ The game adopts the Model-View-Controller (MVC) approach for the code's architec
 
 ## Technologies Used:
 * HTML: A single index page that sets up the wireframe of the game.
-* CSS: The Tailwind CSS framework.
+* CSS: To provide the styling using the Tailwind CSS framework.
 * JavaScript: To handle the game's logic and manipulate the DOM.
 
 ## How to Play:
